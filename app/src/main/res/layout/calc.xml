@@ -101,11 +101,12 @@
 
     <TextView
         android:id="@+id/battleLog"
-        android:layout_width="match_parent"
+        android:layout_width="500dp"
         android:layout_height="250dp"
-        android:layout_marginBottom="106dp"
-        android:text="TextView"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="40dp"
         android:gravity="center"
+        android:text="TextView"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -115,11 +116,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="235dp"
         android:layout_marginEnd="236dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="60dp"
         android:text="CLASH!"
         app:layout_constraintBottom_toTopOf="@+id/textView8"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
 
