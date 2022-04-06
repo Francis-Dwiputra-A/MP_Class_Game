@@ -6,6 +6,10 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <include
+        layout="@layout/appbar"
+        />
+
 
     <GridLayout
         android:id="@+id/gridLayout"
@@ -200,7 +204,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="casual"
-            android:text="History"
+            android:text="Histery"
             android:layout_marginLeft="165dp"
             android:layout_marginTop="12dp"
             android:textSize="30dp"
