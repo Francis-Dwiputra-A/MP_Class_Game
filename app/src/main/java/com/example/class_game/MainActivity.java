@@ -11,9 +11,9 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    TextView pix_track,txt_timer,txt_timer2, txt_troop1, txt_troop2;
+    TextView pix_track,txt_timer, txt_troop1, txt_troop2, txtinfo1, txtinfo2;
     private Toolbar mytopbar;
-    Button play;
+    Button play, resetbtn;
     int turn = 1, i = 0;
     character att = null,def = null;
     character S1_1,S2_1,S3_1,S1_2,S2_2,S3_2;
@@ -67,30 +67,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         pix_track = findViewById(R.id.pixel_tracker);
         txt_timer = findViewById(R.id.timer);
-        txt_timer2 = findViewById(R.id.timer2);
         txt_troop1 = findViewById(R.id.troop_remain1);
         txt_troop2 = findViewById(R.id.troop_remain2);
+        txtinfo1 = findViewById(R.id.info1);
+        txtinfo2 = findViewById(R.id.info2);
         play = findViewById(R.id.play);
+        resetbtn = findViewById(R.id.restartbtn);
         mytopbar = findViewById(R.id.topBar);
         setSupportActionBar(mytopbar);
-        T1_1 = new character(1,35,75,70,100,10);
-        T2_1 = new character(1,35,75,70,100,10);
-        T3_1 = new character(1,35,75,70,100,10);
-        T1_2 = new character(1,35,75,70,100,10);
-        T2_2 = new character(1,35,75,70,100,10);
-        T3_2 = new character(1,35,75,70,100,10);
-        M1_1 = new character(1,35,75,70,100,7);
-        M2_1 = new character(1,35,75,70,100,7);
-        M3_1 = new character(1,35,75,70,100,7);
-        M1_2 = new character(1,35,75,70,100,7);
-        M2_2 = new character(1,35,75,70,100,7);
-        M3_2 = new character(1,35,75,70,100,7);
-        S1_1 = new character(2,90,30,45,130,7);
-        S2_1 = new character(2,90,30,45,130,7);
-        S3_1 = new character(2,90,30,45,130,7);
-        S1_2 = new character(2,90,30,45,130,7);
-        S2_2 = new character(2,90,30,45,130,7);
-        S3_2 = new character(2,90,30,45,130,7);
+        createCharacter();
         pix_track.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
@@ -281,26 +266,29 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
                     if(turn == 1){
-                        pix_track.setText("Player 1 lose " + lose1 + " Troops, while player 2 lose " + lose2 + " Troops ");
+                        pix_track.setText("Player 1 lose " + lose1 + " Troops, Player 2 lose " + lose2 + " Troops ");
                     }
                     else{
-                        pix_track.setText("Player 2 lose " + lose1 + " Troops, while player 1 lose " + lose2 + " Troops ");
+                        pix_track.setText("Player 2 lose " + lose1 + " Troops, Player 1 lose " + lose2 + " Troops ");
                     }
                     if(S1_1.troops + S2_1.troops + S3_1.troops + M1_1.troops + M2_1.troops + M3_1.troops + T1_1.troops + T2_1.troops + T3_1.troops == 0){
                         pix_track.setText("Player 2 Wins");
+                        resetbtn.setVisibility(View.VISIBLE);
+                        txt_timer.setVisibility(View.INVISIBLE);
+
                     }
                     else if(S1_2.troops + S2_2.troops + S3_2.troops + M1_2.troops + M2_2.troops + M3_2.troops + T1_2.troops + T2_2.troops + T3_2.troops == 0){
                         pix_track.setText("Player 1 Wins");
+                        resetbtn.setVisibility(View.VISIBLE);
+                        txt_timer.setVisibility(View.INVISIBLE);
                     }
                     txt_troop1.setText("Player 1 Troops Remaining: \nS1 = " + S1_1.troops + ";  S2 = " + S2_1.troops + ";  S3 = " + S3_1.troops + "\nM1 = " + M1_1.troops + ";  M2 = " + M2_1.troops + ";  M3 = " + M3_1.troops + " \nT1 = " +T1_1.troops + ";  T2 = " + T2_1.troops + ";  T3 = " + T3_1.troops);
                     txt_troop2.setText("Player 2 Troops Remaining: \nT1 = " +T1_2.troops + ";  T2 = " + T2_2.troops + ";  T3 = " + T3_2.troops + "\nM1 = " + M1_2.troops + ";  M2 = " + M2_2.troops + ";  M3 = " + M3_2.troops + " \nS1 = " + S1_2.troops + ";  S2 = " + S2_2.troops + ";  S3 = " + S3_2.troops);
                     i = 0;
                     if(turn == 1){
-                        txt_timer.setText("Player 1 : 0");
                         turn = 2;
                     }
                     else{
-                        txt_timer2.setText("Player 2 : 0");
                         turn = 1;
                     }
                     att = null;
@@ -316,10 +304,45 @@ public class MainActivity extends AppCompatActivity {
         play.setVisibility(View.INVISIBLE);
         pix_track.setVisibility(View.VISIBLE);
         txt_timer.setVisibility(View.VISIBLE);
-        txt_timer2.setVisibility(View.VISIBLE);
         txt_troop1.setVisibility(View.VISIBLE);
         txt_troop2.setVisibility(View.VISIBLE);
+        txtinfo1.setVisibility(View.INVISIBLE);
+        txtinfo2.setVisibility(View.INVISIBLE);
     }
+
+    public void createCharacter(){
+        T1_1 = new character(1,35,75,70,100,10);
+        T2_1 = new character(1,35,75,70,100,10);
+        T3_1 = new character(1,35,75,70,100,10);
+        T1_2 = new character(1,35,75,70,100,10);
+        T2_2 = new character(1,35,75,70,100,10);
+        T3_2 = new character(1,35,75,70,100,10);
+        M1_1 = new character(1,35,75,70,100,7);
+        M2_1 = new character(1,35,75,70,100,7);
+        M3_1 = new character(1,35,75,70,100,7);
+        M1_2 = new character(1,35,75,70,100,7);
+        M2_2 = new character(1,35,75,70,100,7);
+        M3_2 = new character(1,35,75,70,100,7);
+        S1_1 = new character(2,90,30,45,130,7);
+        S2_1 = new character(2,90,30,45,130,7);
+        S3_1 = new character(2,90,30,45,130,7);
+        S1_2 = new character(2,90,30,45,130,7);
+        S2_2 = new character(2,90,30,45,130,7);
+        S3_2 = new character(2,90,30,45,130,7);
+    }
+
+    public void resetGame(View v){
+        turn=1;
+        i=0;
+        createCharacter();
+        txt_timer.setVisibility(View.VISIBLE);
+        resetbtn.setVisibility(View.INVISIBLE);
+        txt_timer.setVisibility(View.VISIBLE);
+        pix_track.setText("Battle Log");
+        txt_troop1.setText("Player 1 Troops Remaining: \nS1 = " + S1_1.troops + ";  S2 = " + S2_1.troops + ";  S3 = " + S3_1.troops + "\nM1 = " + M1_1.troops + ";  M2 = " + M2_1.troops + ";  M3 = " + M3_1.troops + " \nT1 = " +T1_1.troops + ";  T2 = " + T2_1.troops + ";  T3 = " + T3_1.troops);
+        txt_troop2.setText("Player 2 Troops Remaining: \nT1 = " +T1_2.troops + ";  T2 = " + T2_2.troops + ";  T3 = " + T3_2.troops + "\nM1 = " + M1_2.troops + ";  M2 = " + M2_2.troops + ";  M3 = " + M3_2.troops + " \nS1 = " + S1_2.troops + ";  S2 = " + S2_2.troops + ";  S3 = " + S3_2.troops);
+    }
+
     public void start_timer(){
         boolean t = true;
         Handler handler = new Handler();
@@ -347,12 +370,7 @@ public class MainActivity extends AppCompatActivity {
                     handler.post(new Runnable() {
                         @Override
                         public void run() {
-                            if(turn == 1){
-                                txt_timer.setText("Player 1 : " + i);
-                            }
-                            else if(turn == 2){
-                                txt_timer2.setText("Player 2 : " + i);
-                            }
+                            txt_timer.setText("Player " + turn + "\n" + i);
                         }
                     });
                 }

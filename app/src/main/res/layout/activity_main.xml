@@ -27,7 +27,7 @@
             android:layout_row="0"
             android:layout_column="0"
             android:layout_columnWeight="1"
-            android:background="#ffe97f"
+            android:background="#f6ca83"
             android:gravity="center"
             android:text="S1" />
 
@@ -37,7 +37,7 @@
             android:layout_row="0"
             android:layout_column="1"
             android:layout_columnWeight="1"
-            android:background="#f9c74f"
+            android:background="#f9a620"
             android:gravity="center"
             android:text="S2" />
 
@@ -45,7 +45,7 @@
             android:id="@+id/btn3"
             android:layout_height="70dp"
             android:layout_columnWeight="1"
-            android:background="#ffe97f"
+            android:background="#f6ca83"
             android:gravity="center"
             android:text="S3" />
 
@@ -53,7 +53,7 @@
             android:id="@+id/btn4"
             android:layout_height="70dp"
             android:layout_columnWeight="1"
-            android:background="#6ab6dc"
+            android:background="#92e6a7"
             android:gravity="center"
             android:text="M1" />
 
@@ -61,7 +61,7 @@
             android:id="@+id/btn5"
             android:layout_height="70dp"
             android:layout_columnWeight="1"
-            android:background="#2f94c6"
+            android:background="#25a244"
             android:gravity="center"
             android:text="M2" />
 
@@ -69,7 +69,7 @@
             android:id="@+id/btn6"
             android:layout_height="70dp"
             android:layout_columnWeight="1"
-            android:background="#6ab6dc"
+            android:background="#92e6a7"
             android:gravity="center"
             android:text="M3" />
 
@@ -77,7 +77,7 @@
             android:id="@+id/btn7"
             android:layout_height="70dp"
             android:layout_columnWeight="1"
-            android:background="#ffe97f"
+            android:background="#f6ca83"
             android:gravity="center"
             android:text="T1" />
 
@@ -85,7 +85,7 @@
             android:id="@+id/btn8"
             android:layout_height="70dp"
             android:layout_columnWeight="1"
-            android:background="#f5cb5c"
+            android:background="#f9a620"
             android:gravity="center"
             android:text="T2" />
 
@@ -93,7 +93,7 @@
             android:id="@+id/btn9"
             android:layout_height="70dp"
             android:layout_columnWeight="1"
-            android:background="#ffe97f"
+            android:background="#f6ca83"
             android:gravity="center"
             android:text="T3" />
 
@@ -215,20 +215,23 @@
                 android:backgroundTint="@color/white"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:minHeight="48dp"
                 android:textColor="@color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                tools:ignore="SpeakableTextPresentCheck" />
+                app:layout_constraintStart_toStartOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.bottomnavigation.BottomNavigationView>
+
     <TextView
         android:id="@+id/pixel_tracker"
         android:layout_width="411dp"
         android:layout_height="736dp"
-        android:visibility="invisible"
-        android:text="TextView"
         android:gravity="center"
+        android:paddingRight="10dp"
+        android:paddingBottom="35dp"
+        android:text="Battle Log"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -236,60 +239,86 @@
         android:id="@+id/timer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:text="TextView"
+        android:layout_marginStart="160dp"
+        android:text="Player 1\n12"
+        android:textAlignment="center"
+        android:textSize="18dp"
+        android:textStyle="bold"
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/gridLayout2"
-        app:layout_constraintStart_toStartOf="@+id/pixel_tracker"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/gridLayout"
-        app:layout_constraintVertical_bias="0.23" />
-
-    <TextView
-        android:id="@+id/timer2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:text="TextView"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/gridLayout2"
-        app:layout_constraintStart_toStartOf="@+id/pixel_tracker"
-        app:layout_constraintTop_toBottomOf="@+id/gridLayout"
-        app:layout_constraintVertical_bias="0.769" />
+        app:layout_constraintVertical_bias="0.055" />
 
     <Button
         android:id="@+id/play"
         android:layout_width="119dp"
         android:layout_height="63dp"
+        android:layout_marginEnd="16dp"
         android:onClick="play"
         android:text="Play"
         android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/gridLayout2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/pixel_tracker"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="0.528"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/gridLayout" />
 
     <TextView
         android:id="@+id/troop_remain1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="96dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="100dp"
         android:text="Player 1 Troops Remaining: \nS1 = 7;  S2 = 7;  S3 = 7 \nM1 = 7;  M2 = 7;  M3 = 7 \nT1 = 10;  T2 = 10;  T3 = 10"
         android:visibility="invisible"
-        app:layout_constraintStart_toEndOf="@+id/pixel_tracker"
-        app:layout_constraintStart_toStartOf="@+id/timer"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/gridLayout" />
 
     <TextView
         android:id="@+id/troop_remain2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
+        android:layout_marginStart="210dp"
         android:layout_marginTop="100dp"
         android:text="Player 2 Troops Remaining: \nT1 = 10;  T2 = 10;  T3 = 10 \nM1 = 7;  M2 = 7;  M3 = 7 \nS1 = 7;  S2 = 7;  S3 = 7"
         android:visibility="invisible"
-        app:layout_constraintStart_toEndOf="@+id/pixel_tracker"
-        app:layout_constraintStart_toStartOf="@+id/timer"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/gridLayout" />
 
+    <TextView
+        android:id="@+id/info1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="132dp"
+        android:text="Player 1 Control: TOP [Green + Orange]"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@id/gridLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/info2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:textSize="20dp"
+        android:text="Player 2 Control: BOTTOM [Yellow + Blue]"
+        app:layout_constraintBottom_toTopOf="@id/gridLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/restartbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="130dp"
+        android:onClick="resetGame"
+        android:text="Try Again?"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@id/gridLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.531"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
