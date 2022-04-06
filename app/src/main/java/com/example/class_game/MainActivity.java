@@ -1,6 +1,7 @@
 package com.example.class_game;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
 import android.os.Handler;
@@ -11,14 +12,52 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     TextView pix_track,txt_timer;
+    private Toolbar mytopbar;
     Button play;
-    public class character {
-        int att_melee, att_ranged, def_melee, def_ranged;
-        public character(int att_m, int att_r, int def_m, int def_r){
-            this.att_melee = att_m;
-            this.att_ranged = att_r;
-            this.def_melee = def_m;
-            this.def_ranged = def_r;
+    int turn = 1, i = 0;
+    character att = null,def = null;
+    character S1_1,S2_1,S3_1,S1_2,S2_2,S3_2;
+    character M1_1,M2_1,M3_1,M1_2,M2_2,M3_2;
+    character T1_1,T2_1,T3_1,T1_2,T2_2,T3_2;
+    public class character{
+        int type;
+        int att;
+        int def;
+        int hp;
+        int price;
+        int troops;
+
+        public character(int ty,int a,int d, int h, int p, int t){
+            this.type = ty;
+            this.att = a;
+            this.def = d;
+            this.hp = h;
+            this.price = p;
+            this.troops = t;
+        }
+
+        public void setAtt(int att) {
+            this.att = att;
+        }
+
+        public void setDef(int def) {
+            this.def = def;
+        }
+
+        public void setHp(int hp) {
+            this.hp = hp;
+        }
+
+        public void setPrice(int price) {
+            this.price = price;
+        }
+
+        public void setTroops(int troops) {
+            this.troops = troops;
+        }
+
+        public void setType(int type) {
+            this.type = type;
         }
     }
 
@@ -29,77 +68,202 @@ public class MainActivity extends AppCompatActivity {
         pix_track = findViewById(R.id.pixel_tracker);
         txt_timer = findViewById(R.id.timer);
         play = findViewById(R.id.play);
+        mytopbar = findViewById(R.id.topBar);
+        setSupportActionBar(mytopbar);
+        T1_1 = new character(1,35,75,70,100,10);
+        T2_1 = new character(1,35,75,70,100,10);
+        T3_1 = new character(1,35,75,70,100,10);
+        T1_2 = new character(1,35,75,70,100,10);
+        T2_2 = new character(1,35,75,70,100,10);
+        T3_2 = new character(1,35,75,70,100,10);
+        M1_1 = new character(1,35,75,70,100,7);
+        M2_1 = new character(1,35,75,70,100,7);
+        M3_1 = new character(1,35,75,70,100,7);
+        M1_2 = new character(1,35,75,70,100,7);
+        M2_2 = new character(1,35,75,70,100,7);
+        M3_2 = new character(1,35,75,70,100,7);
+        S1_1 = new character(2,90,30,45,130,7);
+        S2_1 = new character(2,90,30,45,130,7);
+        S3_1 = new character(2,90,30,45,130,7);
+        S1_2 = new character(2,90,30,45,130,7);
+        S2_2 = new character(2,90,30,45,130,7);
+        S3_2 = new character(2,90,30,45,130,7);
         pix_track.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 int x = (int)motionEvent.getX();
                 int y = (int)motionEvent.getY();
-                if(y > 770 && y < 1150)
+                if(y > 770 && y < 1304)
                 {
                     pix_track.setText("This is blank space");
                 }
-                else if(x <= 358){
-                    if(y >= 194 && y <= 386){
-                        pix_track.setText("This is top S1");
+                else if(x <= 358 && y >= 183){
+                    if(y <= 386){
+                        if(turn==2&att!=null){
+                            def = S1_1;
+                        }
+                        else{
+                            att = S1_1;
+                        }
                     }
                     else if(y <= 578){
-                        pix_track.setText("This is top M1");
+                        if(turn==2&att!=null){
+                            def = M1_1;
+                        }
+                        else{
+                            att = M1_1;
+                        }
                     }
                     else if(y <= 770){
-                        pix_track.setText("This is top T1");
+                        if(turn==2&att!=null){
+                            def = T1_1;
+                        }
+                        else{
+                            att = T1_1;
+                        }
                     }
-                    else if(y <= 1342){
-                        pix_track.setText("This is bottom T1");
+                    else if(y <= 1496){
+                        if(turn==1&att!=null){
+                            def = T1_2;
+                        }
+                        else{
+                            att = T1_2;
+                        }
                     }
-                    else if(y <= 1534){
-                        pix_track.setText("This is bottom M1");
+                    else if(y <= 1688){
+                        if(turn==1&att!=null){
+                            def = M1_2;
+                        }
+                        else{
+                            att = M1_2;
+                        }
                     }
-                    else if(y <= 1726){
-                        pix_track.setText("This is bottom S1");
+                    else if(y <= 1880){
+                        if(turn==1&att!=null){
+                            def = S1_2;
+                        }
+                        else{
+                            att = S1_2;
+                        }
                     }
                 }
-                else if(x <= 720){
-                    if(y >= 194 && y <= 386){
-                        pix_track.setText("This is top S2");
+                else if(x <= 720 && y >= 183){
+                    if( y <= 386){
+                        if(turn==2&att!=null){
+                            def = S2_1;
+                        }
+                        else{
+                            att = S2_1;
+                        }
                     }
                     else if(y <= 578){
-                        pix_track.setText("This is top M2");
+                        if(turn==2&att!=null){
+                            def = M2_1;
+                        }
+                        else{
+                            att = M2_1;
+                        }
                     }
                     else if(y <= 770){
-                        pix_track.setText("This is top T2");
+                        if(turn==2&att!=null){
+                            def = T2_1;
+                        }
+                        else{
+                            att = T2_1;
+                        }
                     }
-                    else if(y <= 1342){
-                        pix_track.setText("This is bottom T2");
+                    else if(y <= 1496){
+                        if(turn==1&att!=null){
+                            def = T2_2;
+                        }
+                        else{
+                            att = T2_2;
+                        }
                     }
-                    else if(y <= 1534){
-                        pix_track.setText("This is bottom M2");
+                    else if(y <= 1688){
+                        if(turn==1&att!=null){
+                            def = M2_2;
+                        }
+                        else{
+                            att = M2_2;
+                        }
                     }
-                    else if(y <= 1726){
-                        pix_track.setText("This is bottom S2");
+                    else if(y <= 1880){
+                        if(turn==1&att!=null){
+                            def = S2_2;
+                        }
+                        else{
+                            att = S2_2;
+                        }
                     }
                 }
-                else if(x <= 1082){
-                    if(y >= 194 && y <= 386){
-                        pix_track.setText("This is top S3");
+                else if(x <= 1082 && y>=183){
+                    if(y <= 386){
+                        if(turn==2&att!=null){
+                            def = S3_1;
+                        }
+                        else{
+                            att = S3_1;
+                        }
                     }
                     else if(y <= 578){
-                        pix_track.setText("This is top M3");
+                        if(turn==2&att!=null){
+                            def = M3_1;
+                        }
+                        else{
+                            att = M3_1;
+                        }
                     }
                     else if(y <= 770){
-                        pix_track.setText("This is top T3");
+                        if(turn==2&att!=null){
+                            def = T3_1;
+                        }
+                        else{
+                            att = T3_1;
+                        }
                     }
-                    else if(y <= 1342){
-                        pix_track.setText("This is bottom T3");
+                    else if(y <= 1496){
+                        if(turn==1&att!=null){
+                            def = T3_2;
+                        }
+                        else{
+                            att = T3_2;
+                        }
                     }
-                    else if(y <= 1534){
-                        pix_track.setText("This is bottom M3");
+                    else if(y <= 1688){
+                        if(turn==1&att!=null){
+                            def = M3_2;
+                        }
+                        else{
+                            att = M3_2;
+                        }
                     }
-                    else if(y <= 1726){
-                        pix_track.setText("This is bottom S3");
+                    else if(y <= 1880){
+                        if(turn==1&att!=null){
+                            def = S3_2;
+                        }
+                        else{
+                            att = S3_2;
+                        }
                     }
                 }
                 else{
                     pix_track.setText("tehe error");
+                }
+                if(att!=null){
+                    pix_track.setText("att = " + att.troops);
+                }
+                if(att!=null && def!=null){
+                    pix_track.setText("att = " + att.troops + "def = " + def.troops);
+                    i = 0;
+                    if(turn == 1){
+                        turn = 2;
+                    }
+                    else{
+                        turn = 1;
+                    }
+                    att = null;
+                    def = null;
                 }
                 return true;
             }
@@ -115,10 +279,17 @@ public class MainActivity extends AppCompatActivity {
         Handler handler = new Handler();
         Runnable runnable = new Runnable() {
             public void run(){
-                int i = 0;
                 while(t){
-                    if(i >= 10){
+                    if(i >= 15){
+                        if(turn == 1){
+                            turn = 2;
+                        }
+                        else{
+                            turn = 1;
+                        }
                         i = 0;
+                        att = null;
+                        def = null;
                     }
                     try{
                         i++;
@@ -127,11 +298,10 @@ public class MainActivity extends AppCompatActivity {
                     catch(InterruptedException e){
                         e.printStackTrace();
                     }
-                    int finalI = i;
                     handler.post(new Runnable() {
                         @Override
                         public void run() {
-                            txt_timer.setText(""+ finalI);
+                            txt_timer.setText("Player " + turn + " : " + i);
                         }
                     });
                 }
