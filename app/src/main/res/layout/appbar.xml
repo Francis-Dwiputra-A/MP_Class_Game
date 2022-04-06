@@ -6,7 +6,6 @@
     android:layout_height="70dp"
     android:background="#242423"
     android:id="@+id/topBar"
-
     android:theme="@style/ThemeOverlay.AppCompat.Dark"
     >
 
@@ -23,10 +22,9 @@
         android:layout_height="wrap_content"
         android:fontFamily="casual"
         android:text="Histery"
-        android:textAlignment="center"
-        android:layout_marginLeft="122dp"
-        android:layout_marginTop="12dp"
-        android:textSize="30dp"
+        android:layout_marginLeft="115dp"
+        android:layout_marginTop="6dp"
+        android:textSize="35dp"
         android:textColor="#e9eaec" />
 
 </androidx.appcompat.widget.Toolbar>
