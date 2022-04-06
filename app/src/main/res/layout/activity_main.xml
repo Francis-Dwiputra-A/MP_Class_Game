@@ -19,7 +19,7 @@
         android:columnCount="3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/topNav">
+        app:layout_constraintTop_toBottomOf="@+id/topBar">
 
         <TextView
             android:id="@+id/btn1"
@@ -182,34 +182,6 @@
             android:text="S3" />
 
     </GridLayout>
-
-    <com.google.android.material.navigation.NavigationView
-        android:id="@+id/topNav"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:background="#242423"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="3dp"
-            android:src="@drawable/menu"/>
-
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="casual"
-            android:text="Histery"
-            android:layout_marginLeft="165dp"
-            android:layout_marginTop="12dp"
-            android:textSize="30dp"
-            android:textColor="#e9eaec" />
-    </com.google.android.material.navigation.NavigationView>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/botNav"
