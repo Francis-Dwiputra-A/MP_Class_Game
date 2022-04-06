@@ -11,7 +11,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    TextView pix_track,txt_timer;
+    TextView pix_track,txt_timer, txt_troop1, txt_troop2;
     private Toolbar mytopbar;
     Button play;
     int turn = 1, i = 0;
@@ -67,6 +67,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         pix_track = findViewById(R.id.pixel_tracker);
         txt_timer = findViewById(R.id.timer);
+        txt_troop1 = findViewById(R.id.troop_remain1);
+        txt_troop2 = findViewById(R.id.troop_remain2);
         play = findViewById(R.id.play);
         mytopbar = findViewById(R.id.topBar);
         setSupportActionBar(mytopbar);
@@ -273,6 +275,10 @@ public class MainActivity extends AppCompatActivity {
     public void play(View v){
         start_timer();
         play.setVisibility(View.INVISIBLE);
+        pix_track.setVisibility(View.VISIBLE);
+        txt_timer.setVisibility(View.VISIBLE);
+        txt_troop1.setVisibility(View.VISIBLE);
+        txt_troop2.setVisibility(View.VISIBLE);
     }
     public void start_timer(){
         boolean t = true;

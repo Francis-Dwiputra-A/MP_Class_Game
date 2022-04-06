@@ -224,6 +224,7 @@
         android:id="@+id/pixel_tracker"
         android:layout_width="411dp"
         android:layout_height="736dp"
+        android:visibility="invisible"
         android:text="TextView"
         android:gravity="center"
         app:layout_constraintStart_toStartOf="parent"
@@ -233,7 +234,8 @@
         android:id="@+id/timer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="40dp"
+        android:layout_marginLeft="20dp"
+        android:visibility="invisible"
         android:text="TextView"
         app:layout_constraintBottom_toTopOf="@+id/gridLayout2"
         app:layout_constraintStart_toStartOf="@+id/pixel_tracker"
@@ -250,5 +252,28 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/pixel_tracker"
         app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/troop_remain2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="85dp"
+        android:layout_marginTop="5dp"
+        android:visibility="invisible"
+        android:text="Player 2 Troops Remaining: \nS1 = 7;  S2 = 7;  S3 = 7 \nM1 = 7;  M2 = 7;  M3 = 7 \nT1 = 10;  T2 = 10;  T3 = 10"
+        app:layout_constraintStart_toEndOf="@+id/pixel_tracker"
+        app:layout_constraintStart_toStartOf="@+id/timer"
+        app:layout_constraintTop_toBottomOf="@+id/gridLayout" />
+
+    <TextView
+        android:id="@+id/troop_remain1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="85dp"
+        android:layout_marginTop="150dp"
+        android:visibility="invisible"
+        android:text="Player 1 Troops Remaining: \nT1 = 10;  T2 = 10;  T3 = 10 \nM1 = 7;  M2 = 7;  M3 = 7 \nS1 = 7;  S2 = 7;  S3 = 7"
+        app:layout_constraintStart_toEndOf="@+id/pixel_tracker"
+        app:layout_constraintStart_toStartOf="@+id/timer"
+        app:layout_constraintTop_toBottomOf="@+id/gridLayout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
