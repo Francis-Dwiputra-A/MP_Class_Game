@@ -252,26 +252,27 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/pixel_tracker"
         app:layout_constraintTop_toTopOf="parent" />
-    <TextView
-        android:id="@+id/troop_remain2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="85dp"
-        android:layout_marginTop="5dp"
-        android:visibility="invisible"
-        android:text="Player 2 Troops Remaining: \nS1 = 7;  S2 = 7;  S3 = 7 \nM1 = 7;  M2 = 7;  M3 = 7 \nT1 = 10;  T2 = 10;  T3 = 10"
-        app:layout_constraintStart_toEndOf="@+id/pixel_tracker"
-        app:layout_constraintStart_toStartOf="@+id/timer"
-        app:layout_constraintTop_toBottomOf="@+id/gridLayout" />
 
     <TextView
         android:id="@+id/troop_remain1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="85dp"
-        android:layout_marginTop="150dp"
+        android:layout_marginStart="96dp"
+        android:layout_marginTop="4dp"
+        android:text="Player 1 Troops Remaining: \nS1 = 7;  S2 = 7;  S3 = 7 \nM1 = 7;  M2 = 7;  M3 = 7 \nT1 = 10;  T2 = 10;  T3 = 10"
         android:visibility="invisible"
-        android:text="Player 1 Troops Remaining: \nT1 = 10;  T2 = 10;  T3 = 10 \nM1 = 7;  M2 = 7;  M3 = 7 \nS1 = 7;  S2 = 7;  S3 = 7"
+        app:layout_constraintStart_toEndOf="@+id/pixel_tracker"
+        app:layout_constraintStart_toStartOf="@+id/timer"
+        app:layout_constraintTop_toBottomOf="@+id/gridLayout" />
+
+    <TextView
+        android:id="@+id/troop_remain2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="100dp"
+        android:text="Player 2 Troops Remaining: \nT1 = 10;  T2 = 10;  T3 = 10 \nM1 = 7;  M2 = 7;  M3 = 7 \nS1 = 7;  S2 = 7;  S3 = 7"
+        android:visibility="invisible"
         app:layout_constraintStart_toEndOf="@+id/pixel_tracker"
         app:layout_constraintStart_toStartOf="@+id/timer"
         app:layout_constraintTop_toBottomOf="@+id/gridLayout" />

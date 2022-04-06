@@ -252,11 +252,47 @@ public class MainActivity extends AppCompatActivity {
                 else{
                     pix_track.setText("tehe error");
                 }
-                if(att!=null){
-                    pix_track.setText("att = " + att.troops);
-                }
                 if(att!=null && def!=null){
-                    pix_track.setText("att = " + att.troops + "def = " + def.troops);
+                    int lose1 = 0, lose2 = 0;
+                    double lose22 = ((att.att * att.troops) - (def.def * def.troops))/def.hp;
+                    lose2 = (int)lose22;
+                    if(lose2 < 0){
+                        lose2 = 0;
+                    }
+                    else if(lose2 > def.troops){
+                        lose2 = def.troops;
+                    }
+                    def.troops = def.troops - lose2;
+                    if(def.troops < 0){
+                        def.troops = 0;
+                    }
+                    if((def.troops > 0) &&!(att.type == 2 && def.type == 1)){
+                        lose1 = Math.round((def.att * def.troops)/att.hp);
+                        if(lose1 < 0){
+                            lose1 = 0;
+                        }
+                        else if(lose1 > att.troops){
+                            lose1 = att.troops;
+                        }
+                        att.troops = att.troops - lose1;
+                        if(att.troops < 0){
+                            att.troops = 0;
+                        }
+                    }
+                    if(turn == 1){
+                        pix_track.setText("Player 1 lose " + lose1 + " Troops, while player 2 lose " + lose2 + " Troops ");
+                    }
+                    else{
+                        pix_track.setText("Player 2 lose " + lose1 + " Troops, while player 1 lose " + lose2 + " Troops ");
+                    }
+                    if(S1_1.troops + S2_1.troops + S3_1.troops + M1_1.troops + M2_1.troops + M3_1.troops + T1_1.troops + T2_1.troops + T3_1.troops == 0){
+                        pix_track.setText("Player 2 Wins");
+                    }
+                    else if(S1_2.troops + S2_2.troops + S3_2.troops + M1_2.troops + M2_2.troops + M3_2.troops + T1_2.troops + T2_2.troops + T3_2.troops == 0){
+                        pix_track.setText("Player 1 Wins");
+                    }
+                    txt_troop1.setText("Player 1 Troops Remaining: \nS1 = " + S1_1.troops + ";  S2 = " + S2_1.troops + ";  S3 = " + S3_1.troops + "\nM1 = " + M1_1.troops + ";  M2 = " + M2_1.troops + ";  M3 = " + M3_1.troops + " \nT1 = " +T1_1.troops + ";  T2 = " + T2_1.troops + ";  T3 = " + T3_1.troops);
+                    txt_troop2.setText("Player 2 Troops Remaining: \nT1 = " +T1_2.troops + ";  T2 = " + T2_2.troops + ";  T3 = " + T3_2.troops + "\nM1 = " + M1_2.troops + ";  M2 = " + M2_2.troops + ";  M3 = " + M3_2.troops + " \nS1 = " + S1_2.troops + ";  S2 = " + S2_2.troops + ";  S3 = " + S3_2.troops);
                     i = 0;
                     if(turn == 1){
                         turn = 2;
