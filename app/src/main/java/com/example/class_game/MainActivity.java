@@ -11,7 +11,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    TextView pix_track,txt_timer, txt_troop1, txt_troop2;
+    TextView pix_track,txt_timer,txt_timer2, txt_troop1, txt_troop2;
     private Toolbar mytopbar;
     Button play;
     int turn = 1, i = 0;
@@ -67,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         pix_track = findViewById(R.id.pixel_tracker);
         txt_timer = findViewById(R.id.timer);
+        txt_timer2 = findViewById(R.id.timer2);
         txt_troop1 = findViewById(R.id.troop_remain1);
         txt_troop2 = findViewById(R.id.troop_remain2);
         play = findViewById(R.id.play);
@@ -295,9 +296,11 @@ public class MainActivity extends AppCompatActivity {
                     txt_troop2.setText("Player 2 Troops Remaining: \nT1 = " +T1_2.troops + ";  T2 = " + T2_2.troops + ";  T3 = " + T3_2.troops + "\nM1 = " + M1_2.troops + ";  M2 = " + M2_2.troops + ";  M3 = " + M3_2.troops + " \nS1 = " + S1_2.troops + ";  S2 = " + S2_2.troops + ";  S3 = " + S3_2.troops);
                     i = 0;
                     if(turn == 1){
+                        txt_timer.setText("Player 1 : 0");
                         turn = 2;
                     }
                     else{
+                        txt_timer2.setText("Player 2 : 0");
                         turn = 1;
                     }
                     att = null;
@@ -313,6 +316,7 @@ public class MainActivity extends AppCompatActivity {
         play.setVisibility(View.INVISIBLE);
         pix_track.setVisibility(View.VISIBLE);
         txt_timer.setVisibility(View.VISIBLE);
+        txt_timer2.setVisibility(View.VISIBLE);
         txt_troop1.setVisibility(View.VISIBLE);
         txt_troop2.setVisibility(View.VISIBLE);
     }
@@ -343,7 +347,12 @@ public class MainActivity extends AppCompatActivity {
                     handler.post(new Runnable() {
                         @Override
                         public void run() {
-                            txt_timer.setText("Player " + turn + " : " + i);
+                            if(turn == 1){
+                                txt_timer.setText("Player 1 : " + i);
+                            }
+                            else if(turn == 2){
+                                txt_timer2.setText("Player 2 : " + i);
+                            }
                         }
                     });
                 }
