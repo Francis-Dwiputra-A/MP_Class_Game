@@ -253,7 +253,7 @@ public class MainActivity extends AppCompatActivity {
                         def.troops = 0;
                     }
                     if((def.troops > 0) &&!(att.type == 2 && def.type == 1)){
-                        lose1 = Math.round((def.att * def.troops)/att.hp);
+                        lose1 = Math.round(((def.att * def.troops) - (att.def * att.troops))/att.hp);
                         if(lose1 < 0){
                             lose1 = 0;
                         }
@@ -311,24 +311,24 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void createCharacter(){
-        T1_1 = new character(1,35,75,70,100,10);
-        T2_1 = new character(1,35,75,70,100,10);
-        T3_1 = new character(1,35,75,70,100,10);
-        T1_2 = new character(1,35,75,70,100,10);
-        T2_2 = new character(1,35,75,70,100,10);
-        T3_2 = new character(1,35,75,70,100,10);
-        M1_1 = new character(1,35,75,70,100,7);
-        M2_1 = new character(1,35,75,70,100,7);
-        M3_1 = new character(1,35,75,70,100,7);
-        M1_2 = new character(1,35,75,70,100,7);
-        M2_2 = new character(1,35,75,70,100,7);
-        M3_2 = new character(1,35,75,70,100,7);
-        S1_1 = new character(2,90,30,45,130,7);
-        S2_1 = new character(2,90,30,45,130,7);
-        S3_1 = new character(2,90,30,45,130,7);
-        S1_2 = new character(2,90,30,45,130,7);
-        S2_2 = new character(2,90,30,45,130,7);
-        S3_2 = new character(2,90,30,45,130,7);
+        T1_1 = new character(1,35,75,70,100,5);
+        T2_1 = new character(1,35,75,70,100,5);
+        T3_1 = new character(1,35,75,70,100,5);
+        T1_2 = new character(1,35,75,70,100,5);
+        T2_2 = new character(1,35,75,70,100,5);
+        T3_2 = new character(1,35,75,70,100,5);
+        M1_1 = new character(1,35,75,70,100,4);
+        M2_1 = new character(1,35,75,70,100,4);
+        M3_1 = new character(1,35,75,70,100,4);
+        M1_2 = new character(1,35,75,70,100,4);
+        M2_2 = new character(1,35,75,70,100,4);
+        M3_2 = new character(1,35,75,70,100,4);
+        S1_1 = new character(2,90,30,45,130,5);
+        S2_1 = new character(2,90,30,45,130,5);
+        S3_1 = new character(2,90,30,45,130,5);
+        S1_2 = new character(2,90,30,45,130,5);
+        S2_2 = new character(2,90,30,45,130,5);
+        S3_2 = new character(2,90,30,45,130,5);
     }
 
     public void resetGame(View v){

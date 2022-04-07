@@ -270,7 +270,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="100dp"
-        android:text="Player 1 Troops Remaining: \nS1 = 7;  S2 = 7;  S3 = 7 \nM1 = 7;  M2 = 7;  M3 = 7 \nT1 = 10;  T2 = 10;  T3 = 10"
+        android:text="Player 1 Troops Remaining: \nS1 = 5;  S2 = 5;  S3 = 5 \nM1 = 4;  M2 = 4;  M3 = 4 \nT1 = 5;  T2 = 5;  T3 = 5"
         android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/gridLayout" />
@@ -281,7 +281,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="210dp"
         android:layout_marginTop="100dp"
-        android:text="Player 2 Troops Remaining: \nT1 = 10;  T2 = 10;  T3 = 10 \nM1 = 7;  M2 = 7;  M3 = 7 \nS1 = 7;  S2 = 7;  S3 = 7"
+        android:text="Player 2 Troops Remaining: \nT1 = 5;  T2 = 5;  T3 = 5 \nM1 = 4;  M2 = 4;  M3 = 4 \nS1 = 5;  S2 = 5;  S3 = 5"
         android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/gridLayout" />
